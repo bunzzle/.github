@@ -1,0 +1,52 @@
+name: Bug report
+description: Something does not work as documented.
+type: Bug
+body:
+  - type: markdown
+    attributes:
+      value: Never paste API keys, DKIM keys, the master key or email bodies. Replace them with `...`.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `bunzzle --version`
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: How do you run it?
+      options:
+        - Binary with systemd (install.sh)
+        - Docker, one container
+        - Docker, five containers
+        - From source
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: And what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. sudo bunzzle domains add example.com
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: doctor
+    attributes:
+      label: Output of `sudo bunzzle doctor`
+      render: shell
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      render: shell
